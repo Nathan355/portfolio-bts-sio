@@ -38,7 +38,12 @@ body {
     font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--dark-text);
     line-height: 1.6;
-    background: linear-gradient(180deg, #f0f2f5 0%, #e8e9ed 100%);
+    /* Background image - place your file at the project root as bg-portfolio.jpg */
+    background-image: url('bg-portfolio.jpg'), linear-gradient(180deg, #f0f2f5 0%, #e8e9ed 100%);
+    background-size: cover, auto;
+    background-position: center center;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, scroll;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -92,9 +97,13 @@ header {
 .intro {
     padding: 80px 40px;
     text-align: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%);
+    /* subtle translucent panel to keep text readable over background image */
+    background-color: rgba(255,255,255,0.75);
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
+    margin: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .intro::before {
