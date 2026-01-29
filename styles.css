@@ -14,13 +14,15 @@
     
     --light-bg: #f8f9fa;
     --card-bg: #ffffff;
-    --dark-text: #2d3436;
+    --dark-text: #080808;
     --light-text: #ffffff;
     --border-color: #e0e6ed;
     --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
-    --shadow-hover: 0 12px 36px rgba(102, 126, 234, 0.2);
+    --shadow-hover: 0 12px 36px rgba(7, 7, 7, 0.2);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600;800&display=swap');
 
 /* ============== RÉINITIALISATION ============== */
 * {
@@ -35,12 +37,13 @@ html {
 
 /* ============== MISE EN FORME GÉNÉRALE ============== */
 body {
-    font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif;
+    /* futuristic fonts */
+    font-family: 'Orbitron', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* main page text over background should be light for readability */
     color: var(--light-text);
     line-height: 1.6;
     /* Background image - place your file at the project root as bg-portfolio.jpg */
-    background-image: url('bg-portfolio.jpg'), linear-gradient(180deg, #f0f2f5 0%, #e8e9ed 100%);
+    background-image: url('bg-portfolio.jpg'), linear-gradient(180deg, #0b0d10 0%, #121316 60%);
     background-size: cover, auto;
     background-position: center center;
     background-repeat: no-repeat, repeat;
@@ -50,6 +53,16 @@ body {
     flex-direction: column;
 }
 
+/* dark overlay on background to increase contrast */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(6,8,12,0.5);
+    pointer-events: none;
+    z-index: 0;
+}
+
 main {
     flex: 1;
     padding-bottom: 100px;
@@ -57,14 +70,16 @@ main {
 
 /* ============== HEADER & NAVIGATION ============== */
 header {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-bottom: 1px solid var(--border-color);
+    /* glass header for futuristic look */
+    background: rgba(6,8,12,0.35);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
     padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px) saturate(120%);
+    color: var(--light-text);
 }
 
 .navbar {
@@ -79,32 +94,34 @@ header {
 }
 
 .navbar a {
-    color: var(--dark-text);
+    color: rgba(255,255,255,0.92);
     text-decoration: none;
     padding: 12px 22px;
     font-size: 14px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.28s ease;
     border-bottom: 3px solid transparent;
     position: relative;
 }
 
 .navbar a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
     border-bottom-color: var(--accent-color);
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
+    text-shadow: 0 6px 18px rgba(124,108,255,0.08);
 }
 
 .intro {
-    padding: 80px 40px;
+    padding: 100px 40px;
     text-align: center;
-    /* very light translucent overlay so background stays visible */
-    background-color: rgba(255,255,255,0.12);
+    /* stronger translucent dark panel so text is readable but bg visible */
+    background: linear-gradient(180deg, rgba(6,8,12,0.45), rgba(6,8,12,0.25));
     position: relative;
     overflow: hidden;
-    border-radius: 6px;
-    margin: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border-radius: 10px;
+    margin: 24px;
+    box-shadow: 0 18px 40px rgba(5,6,8,0.6);
+    z-index: 1;
 }
 
 .intro::before {
@@ -114,7 +131,7 @@ header {
     right: -50%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(20, 20, 20, 0.1) 0%, transparent 70%);
     border-radius: 50%;
 }
 
@@ -125,30 +142,33 @@ header {
     left: -50%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(7, 7, 7, 0.1) 0%, transparent 70%);
     border-radius: 50%;
 }
 
 .intro h1 {
-    font-size: 56px;
-    margin-bottom: 15px;
+    font-size: 64px;
+    margin-bottom: 12px;
     font-weight: 800;
-    background: var(--primary-gradient);
+    background: linear-gradient(90deg,#9b88ff 0%, #ff7aa6 55%, #ffd45a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    letter-spacing: -1px;
+    text-shadow: 0 14px 40px rgba(155,136,255,0.08), 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .intro p {
     font-size: 18px;
-    opacity: 0.8;
-    max-width: 600px;
+    opacity: 0.95;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
-    color: var(--dark-text);
+    z-index: 2;
+    color: rgba(255,255,255,0.92);
+    font-weight: 300;
 }
 
 /* ============== SECTIONS ============== */
@@ -190,18 +210,20 @@ section h2::after {
 
 /* ============== CARTES DE PROJETS ============== */
 .projet {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 16px;
-    color: var(--dark-text);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow);
+    /* glassy dark cards for futuristic look */
+    background: rgba(10,12,16,0.55);
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 36px;
+    margin-bottom: 28px;
+    border-radius: 14px;
+    color: rgba(255,255,255,0.95);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 12px 34px rgba(5,6,8,0.6);
     display: grid;
-    gap: 15px;
+    gap: 14px;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(6px) saturate(120%);
 }
 
 .projet::before {
@@ -228,17 +250,18 @@ section h2::after {
 }
 
 .projet h3 {
-    background: var(--primary-gradient);
+    background: linear-gradient(90deg,#b9a8ff 0%, #ff95b2 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 24px;
+    font-size: 22px;
     margin: 0;
     font-weight: 700;
+    text-shadow: 0 8px 20px rgba(0,0,0,0.45);
 }
 
 .projet p {
-    color: #555;
+    color: rgba(255,255,255,0.85);
     line-height: 1.8;
 }
 
@@ -270,15 +293,15 @@ ul {
 }
 
 ul li {
-    background-color: var(--card-bg);
-    border-left: 4px solid var(--primary-color);
-    padding: 24px 28px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: rgba(255,255,255,0.03);
+    border-left: 4px solid rgba(180,160,255,0.9);
+    padding: 20px 24px;
+    border-radius: 10px;
+    transition: all 0.28s ease;
+    box-shadow: none;
     position: relative;
-    font-weight: 500;
-    color: #2d3436;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
 }
 
 ul li::after {
@@ -338,10 +361,11 @@ form {
     align-items: center;
     max-width: 600px;
     margin: 0 auto;
-    background: var(--card-bg);
+    background: rgba(10,12,16,0.6);
     padding: 50px;
     border-radius: 16px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
 }
 
 form label {
@@ -360,12 +384,13 @@ input, textarea {
     padding: 14px 18px;
     margin-bottom: 25px;
     width: 100%;
-    border: 2px solid var(--border-color);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 10px;
     font-family: inherit;
     font-size: 15px;
     transition: all 0.3s ease;
-    background: #fafbfc;
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.95);
 }
 
 input::placeholder, textarea::placeholder {
@@ -385,19 +410,19 @@ textarea {
 }
 
 input[type="submit"] {
-    background: var(--secondary-gradient);
+    background: linear-gradient(90deg,#7c6cff 0%,#ff79a6 60%);
     color: var(--light-text);
     border: none;
     cursor: pointer;
-    padding: 16px 48px;
+    padding: 14px 40px;
     border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    margin-top: 15px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.28s ease;
+    margin-top: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    letter-spacing: 0.6px;
+    box-shadow: 0 12px 30px rgba(124,108,255,0.22);
 }
 
 input[type="submit"]:hover {
@@ -407,14 +432,15 @@ input[type="submit"]:hover {
 
 /* ============== FOOTER ============== */
 footer {
-    background: linear-gradient(135deg, #2d3436 0%, #1e1e24 100%);
+    background: rgba(6,8,12,0.6);
     color: var(--light-text);
     text-align: center;
-    padding: 35px;
+    padding: 30px;
     margin-top: auto;
     font-weight: 600;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
     font-size: 14px;
+    backdrop-filter: blur(6px);
 }
 
 /* ============== SECTIONS SPÉCIFIQUES ============== */
