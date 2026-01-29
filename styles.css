@@ -36,7 +36,8 @@ html {
 /* ============== MISE EN FORME GÉNÉRALE ============== */
 body {
     font-family: 'Segoe UI', 'Helvetica Neue', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--dark-text);
+    /* main page text over background should be light for readability */
+    color: var(--light-text);
     line-height: 1.6;
     /* Background image - place your file at the project root as bg-portfolio.jpg */
     background-image: url('bg-portfolio.jpg'), linear-gradient(180deg, #f0f2f5 0%, #e8e9ed 100%);
@@ -162,12 +163,17 @@ section {
 section h2 {
     text-align: center;
     margin-bottom: 60px;
-    color: var(--dark-text);
+    color: var(--light-text);
     font-size: 42px;
     font-weight: 800;
     position: relative;
     padding-bottom: 20px;
     letter-spacing: -0.5px;
+}
+
+/* make normal paragraphs in transparent sections light-colored */
+section p {
+    color: rgba(255,255,255,0.95);
 }
 
 section h2::after {
