@@ -97,13 +97,13 @@ header {
 .intro {
     padding: 80px 40px;
     text-align: center;
-    /* subtle translucent panel to keep text readable over background image */
-    background-color: rgba(255,255,255,0.75);
+    /* very light translucent overlay so background stays visible */
+    background-color: rgba(255,255,255,0.12);
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    margin: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    margin: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
 .intro::before {
@@ -300,8 +300,8 @@ ul li:hover::after {
 
 /* ============== SECTION COMPÉTENCES ============== */
 .competences {
-    background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(250, 112, 154, 0.05) 100%);
-    border-radius: 16px;
+    background: transparent;
+    border-radius: 12px;
 }
 
 .competences a {
@@ -427,19 +427,19 @@ footer {
 }
 
 .contact {
-    background: linear-gradient(135deg, rgba(245, 87, 108, 0.03) 0%, rgba(240, 147, 251, 0.03) 100%);
+    background: transparent;
 }
 
 .cursus {
-    background: linear-gradient(135deg, rgba(250, 112, 154, 0.03) 0%, rgba(240, 147, 251, 0.03) 100%);
+    background: transparent;
 }
 
 .Epreuve {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+    background: transparent;
 }
 
 .veille {
-    background: linear-gradient(135deg, rgba(250, 112, 154, 0.03) 0%, rgba(254, 225, 64, 0.03) 100%);
+    background: transparent;
 }
 
 /* ============== IMAGE ============== */
