@@ -13,7 +13,6 @@
             <a href="projet.html">Projets</a>
             <a href="alternance.html">Alternance</a>
             <a href="competances.html">Compétences</a>
-            <a href="documentation.html">Documentation</a>
             <a href="cursus.html">Cursus Scolaire</a>
             <a href="contact.html">Contact</a>
             <a href="Epreuve.html">Épreuve</a>
@@ -34,6 +33,94 @@
     <li><strong>Outils et Technologies</strong> - Git/GitHub, VS Code, Stack LAMP, Windows/Linux</li>
 </ul>
             <a href="tableau.html">Voir la grille de compétences</a>
+        </section>
+
+        <section id="documentation">
+            <h2>Documentation des Compétences</h2>
+            
+            <div class="projet">
+                <h3>C1 - Recensement et identification des ressources numériques</h3>
+                <p><strong>Réalisation : Mise en place d'une solution de gestion de parc avec GLPI</strong></p>
+                
+                <p><strong>Contexte du projet</strong><br>
+                Dans le cadre d'un TP sur la gestion d'infrastructure, j'ai déployé une solution de gestion de parc informatique et de service desk en utilisant GLPI (Gestionnaire Libre de Parc Informatique). L'objectif était de centraliser l'inventaire matériel et logiciel pour optimiser le suivi des ressources.</p>
+
+                <p><strong>Mes Réalisations</strong><br>
+                <strong>1. Déploiement de la solution :</strong> J'ai procédé à l'installation complète de la plateforme GLPI. Cette étape a nécessité la configuration de l'environnement serveur pour accueillir l'application et sa base de données, me permettant de prendre en main l'interface d'administration.<br><br>
+                <strong>2. Automatisation de l'inventaire via agents :</strong> Pour alimenter automatiquement le parc, j'ai déployé des agents GLPI :<br>
+                - Sur le serveur lui-même : Pour assurer son propre suivi et remonter ses caractéristiques techniques.<br>
+                - Sur une machine virtuelle (VM) cliente : Pour tester la remontée d'informations à distance.<br>
+                Grâce à ces installations, j'ai pu déclencher un inventaire manuel et vérifier que les composants (processeur, RAM, stockage) apparaissaient correctement dans la console de gestion.<br><br>
+                <strong>3. Exploitation des données et Reporting :</strong> Une fois le parc inventorié, j'ai travaillé sur l'extraction des données pour répondre à des besoins de gestion ou d'audit :<br>
+                - Export de l'inventaire matériel : Génération d'un rapport détaillé des ordinateurs présents sur le réseau.<br>
+                - Export de la base logicielle : Extraction de la liste des logiciels installés, essentielle pour le suivi des licences et la sécurité.</p>
+
+                <p><strong>Compétences validées & Outils</strong></p>
+                <ul>
+                    <li>Installation et configuration d'une application de gestion de services.</li>
+                    <li>Déploiement d'outils de métrologie et d'inventaire (Agents).</li>
+                    <li>Gestion du cycle de vie des équipements informatiques.</li>
+                    <li>Extraction et analyse de données d'inventaire pour le reporting.</li>
+                    <li><strong>Outils et technologies :</strong> GLPI, Agent GLPI, Linux/Windows, Environnement de virtualisation, Formats d'export (CSV / PDF).</li>
+                </ul>
+            </div>
+
+            <div class="projet">
+                <h3>C7 - Collecte, suivi et orientation des demandes</h3>
+                <p><strong>Ma mission : Mettre l'humain au cœur du support avec GLPI</strong></p>
+                
+                <p><strong>Pourquoi ce projet ?</strong><br>
+                Installer un outil, c’est bien, mais faire en sorte qu’il soit utile aux utilisateurs et à l’équipe technique, c’est mieux. J'ai voulu transformer GLPI en un véritable pont entre les besoins des employés et nos solutions techniques. Ma priorité a été de structurer l'outil pour que personne ne se sente "perdu" face à un incident informatique.</p>
+
+                <p><strong>Ce que j'ai mis en place</strong><br>
+                <strong>1. Donner un visage au parc informatique (Utilisateurs & Entités) :</strong><br>
+                Plutôt que de voir des machines anonymes, j'ai structuré l'outil pour qu'il reflète la réalité de l'entreprise :<br>
+                - <strong>Organisation par Entités :</strong> J'ai configuré les services pour que chaque utilisateur soit rattaché à son département. C'est essentiel pour que le ticket tombe directement chez la bonne personne.<br>
+                - <strong>Gestion des Utilisateurs :</strong> J'ai veillé à ce que la base soit propre et bien renseignée. L'export que j'ai réalisé m'a permis de vérifier que chaque collaborateur avait les bons droits d'accès.<br><br>
+                
+                <strong>2. Ne laisser aucune demande sans réponse (Suivi des Tickets) :</strong><br>
+                Le cœur de mon travail a été la gestion des tickets. Pour moi, un ticket n'est pas qu'une ligne dans un tableau, c'est un collègue bloqué dans son travail.<br>
+                J'ai utilisé la fonction d'export des tickets pour prendre du recul sur notre activité.<br>
+                - <strong>Mon objectif :</strong> Analyser les problèmes les plus fréquents (ex: imprimantes, mots de passe oubliés) pour proposer, à l'avenir, des solutions durables ou des guides d'aide pour les utilisateurs.</p>
+            </div>
+
+            <div class="projet">
+                <h3>C11 - Référencement des services en ligne de l’organisation et mesure de leur visibilité</h3>
+                <p><strong>Fiche de Réalisation : Déploiement et Analyse d'Audience d'un Service Web</strong></p>
+                
+                <p><strong>Contexte de l'intervention</strong><br>
+                Dans le paysage numérique actuel, mettre un site en ligne n'est que la première étape ; le véritable enjeu est de le rendre visible et d'en mesurer l'impact. Pour valider la compétence de référencement et de mesure de visibilité, j'ai conçu une Landing Page thématique. Mon objectif était de maîtriser le cycle complet : de la publication du code source à l'analyse concrète du trafic généré.</p>
+
+                <p><strong>Déroulement technique et analytique</strong><br>
+                <strong>1. Intégration et Mise en Production (CI/CD simplifié) :</strong> Pour garantir la disponibilité du service en ligne, j'ai opté pour une approche professionnelle basée sur le contrôle de version et l'hébergement continu :<br>
+                - <strong>Création du dépôt public GitHub :</strong> J'ai versionné le code source de ma Landing Page, rendant mon travail transparent et collaboratif.<br>
+                - <strong>Déploiement via GitHub Pages :</strong> J'ai configuré la publication automatique du site. Cette étape m'a permis de transformer un projet local en un service en ligne fonctionnel et accessible via une URL publique.<br><br>
+                
+                <strong>2. Implémentation de la Métrologie (Google Analytics) :</strong> Pour comprendre comment mon service est utilisé, j'ai dû relier mon site à un outil d'analyse d'audience puissant :<br>
+                - <strong>Création de l'environnement de suivi :</strong> J'ai ouvert et configuré un compte Google Analytics dédié à mon projet.<br>
+                - <strong>Intégration du Google Tag :</strong> J'ai inséré le script de suivi (G-Tag) directement dans la balise &lt;head&gt; de mon code source. C'est cette manipulation technique précise qui permet la remontée des données de navigation vers le tableau de bord d'analyse.<br><br>
+                
+                <strong>3. Acquisition et Analyse du Trafic :</strong> Un outil de mesure n'a de sens que s'il y a de l'activité. J'ai donc simulé une campagne d'acquisition de trafic :<br>
+                - <strong>Génération de vues :</strong> J'ai partagé stratégiquement l'URL de ma Landing Page pour attirer des visiteurs réels sur le site.<br>
+                - <strong>Export de l'analyse d'audience :</strong> J'ai extrait les rapports de trafic depuis Google Analytics. J'ai pu isoler des métriques clés (nombre de visiteurs, pages vues, temps passé) pour prouver que le site était bel et bien visible et visité.</p>
+
+                <p><strong>Bilan de la compétence</strong></p>
+                <ul>
+                    <li><strong>Rendre un service accessible :</strong> Maîtriser le déploiement web.</li>
+                    <li><strong>Auditer une audience :</strong> Configurer techniquement un outil de tracking (balisage HTML).</li>
+                    <li><strong>Exploiter la data :</strong> Lire et exporter des statistiques de trafic pour mesurer la visibilité réelle d'une organisation sur le web.</li>
+                </ul>
+            </div>
+
+            <div class="projet">
+                <h3>C14 - Planification des activités</h3>
+                <p><em>Montrez comment vous organisez votre travail (ex: plannings de déploiement des postes, méthode de gestion de projet utilisée pour la création de la web app RH, gestion des priorités lors d'une panne réseau).</em></p>
+            </div>
+
+            <div class="projet">
+                <h3>C17 - Déploiement d’un service</h3>
+                <p><em>Documentez ici vos mises en production (ex: déploiement de la web app remplaçant le fichier Excel RH, configuration du routeur 4G lors d'une coupure, installation des bornes Wi-Fi du premier étage).</em></p>
+            </div>
         </section>
     </main>
 
