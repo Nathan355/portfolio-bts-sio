@@ -26,77 +26,54 @@
             <h2>Documentation des Compétences</h2>
             
             <div class="projet">
-                <h3>C1 - Recensement et identification des ressources numériques</h3>
-                <p><strong>Réalisation : Mise en place d'une solution de gestion de parc avec GLPI</strong></p>
+                <h3>C1 - Recensement et identification des ressources numériques</h3>                <p><strong>Guide de mise en œuvre : Gestion de parc avec GLPI</strong><br>
+                <strong>Objectif :</strong> Créer un inventaire automatisé pour ne plus rien perdre de son matériel.</p>
                 
-                <p><strong>Contexte du projet</strong><br>
-                Dans le cadre d'un TP sur la gestion d'infrastructure, j'ai déployé une solution de gestion de parc informatique et de service desk en utilisant GLPI (Gestionnaire Libre de Parc Informatique). L'objectif était de centraliser l'inventaire matériel et logiciel pour optimiser le suivi des ressources.</p>
+                <p><strong>1. Installation du "Cerveau" (Le Serveur)</strong><br>
+                <strong>Action :</strong> Préparer un serveur (Linux de préférence) avec une pile LAMP (Linux, Apache, MySQL, PHP).<br>
+                <strong>Pourquoi :</strong> GLPI a besoin d'une base de données pour stocker les infos et d'un serveur web pour afficher l'interface.<br>
+                <strong>Commande :</strong> <code>sudo apt install apache2 mariadb-server php</code> (Installe les composants nécessaires).<br>
+                Téléchargez l'archive GLPI, décompressez-la dans <code>/var/www/html</code> et suivez l'assistant via votre navigateur.</p>
 
-                <p><strong>Mes Réalisations</strong><br>
-                <strong>1. Déploiement de la solution :</strong> J'ai procédé à l'installation complète de la plateforme GLPI. Cette étape a nécessité la configuration de l'environnement serveur pour accueillir l'application et sa base de données, me permettant de prendre en main l'interface d'administration.<br><br>
-                <strong>2. Automatisation de l'inventaire via agents :</strong> Pour alimenter automatiquement le parc, j'ai déployé des agents GLPI :<br>
-                - Sur le serveur lui-même : Pour assurer son propre suivi et remonter ses caractéristiques techniques.<br>
-                - Sur une machine virtuelle (VM) cliente : Pour tester la remontée d'informations à distance.<br>
-                Grâce à ces installations, j'ai pu déclencher un inventaire manuel et vérifier que les composants (processeur, RAM, stockage) apparaissaient correctement dans la console de gestion.<br><br>
-                <strong>3. Exploitation des données et Reporting :</strong> Une fois le parc inventorié, j'ai travaillé sur l'extraction des données pour répondre à des besoins de gestion ou d'audit :<br>
-                - Export de l'inventaire matériel : Génération d'un rapport détaillé des ordinateurs présents sur le réseau.<br>
-                - Export de la base logicielle : Extraction de la liste des logiciels installés, essentielle pour le suivi des licences et la sécurité.</p>
-
-                <p><strong>Compétences validées & Outils</strong></p>
-                <ul>
-                    <li>Installation et configuration d'une application de gestion de services.</li>
-                    <li>Déploiement d'outils de métrologie et d'inventaire (Agents).</li>
-                    <li>Gestion du cycle de vie des équipements informatiques.</li>
-                    <li>Extraction et analyse de données d'inventaire pour le reporting.</li>
-                    <li><strong>Outils et technologies :</strong> GLPI, Agent GLPI, Linux/Windows, Environnement de virtualisation, Formats d'export (CSV / PDF).</li>
-                </ul>
+                <p><strong>2. Installation des "Espions" (Les Agents)</strong><br>
+                <strong>Action :</strong> Installer l'agent GLPI sur chaque machine à surveiller.<br>
+                <strong>Procédure :</strong><br>
+                - <em>Sur Windows :</em> Lancer l'installateur .msi et renseigner l'URL du serveur (ex: http://votre-ip/glpi).<br>
+                - <em>Sur Linux :</em> Utiliser la commande <code>sudo apt install glpi-agent</code>.<br>
+                <strong>Résultat :</strong> La machine apparaît automatiquement dans l'onglet "Ordinateurs" de GLPI avec tous ses détails (RAM, CPU, Disque).</p>
             </div>
 
             <div class="projet">
                 <h3>C7 - Collecte, suivi et orientation des demandes</h3>
-                <p><strong>Ma mission : Mettre l'humain au cœur du support avec GLPI</strong></p>
-                
-                <p><strong>Pourquoi ce projet ?</strong><br>
-                Installer un outil, c’est bien, mais faire en sorte qu’il soit utile aux utilisateurs et à l’équipe technique, c’est mieux. J'ai voulu transformer GLPI en un véritable pont entre les besoins des employés et nos solutions techniques. Ma priorité a été de structurer l'outil pour que personne ne se sente "perdu" face à un incident informatique.</p>
+                <p><strong>Protocole : Transformer GLPI en centre de support (Ticketing)</strong><br>
+                <strong>Objectif :</strong> Centraliser les demandes pour qu'aucun collègue ne reste bloqué.</p>
 
-                <p><strong>Ce que j'ai mis en place</strong><br>
-                <strong>1. Donner un visage au parc informatique (Utilisateurs & Entités) :</strong><br>
-                Plutôt que de voir des machines anonymes, j'ai structuré l'outil pour qu'il reflète la réalité de l'entreprise :<br>
-                - <strong>Organisation par Entités :</strong> J'ai configuré les services pour que chaque utilisateur soit rattaché à son département. C'est essentiel pour que le ticket tombe directement chez la bonne personne.<br>
-                - <strong>Gestion des Utilisateurs :</strong> J'ai veillé à ce que la base soit propre et bien renseignée. L'export que j'ai réalisé m'a permis de vérifier que chaque collaborateur avait les bons droits d'accès.<br><br>
-                
-                <strong>2. Ne laisser aucune demande sans réponse (Suivi des Tickets) :</strong><br>
-                Le cœur de mon travail a été la gestion des tickets. Pour moi, un ticket n'est pas qu'une ligne dans un tableau, c'est un collègue bloqué dans son travail.<br>
-                J'ai utilisé la fonction d'export des tickets pour prendre du recul sur notre activité.<br>
-                - <strong>Mon objectif :</strong> Analyser les problèmes les plus fréquents (ex: imprimantes, mots de passe oubliés) pour proposer, à l'avenir, des solutions durables ou des guides d'aide pour les utilisateurs.</p>
+                <p><strong>1. Structuration du terrain (Entités)</strong><br>
+                <strong>Action :</strong> Dans l'onglet "Administration &gt; Entités", créer l'arborescence de l'entreprise (ex: RH, Comptabilité, Technique).<br>
+                <strong>Pourquoi :</strong> Cela permet de trier les tickets automatiquement par département.</p>
+
+                <p><strong>2. Cycle de vie d'un incident</strong><br>
+                <strong>Action :</strong> Définir le flux.<br>
+                - <strong>Ouverture :</strong> L'utilisateur crée un ticket via son interface simplifiée.<br>
+                - <strong>Traitement :</strong> Le technicien change le statut en "En cours" et ajoute un suivi.<br>
+                - <strong>Clôture :</strong> Une fois résolu, passer en "Clos".<br>
+                <strong>Exploitation :</strong> Utiliser le menu "Assistance &gt; Statistiques" pour voir quels sont les problèmes récurrents et créer une mini-notice (FAQ) pour les résoudre plus vite la prochaine fois.</p>
             </div>
 
             <div class="projet">
                 <h3>C11 - Référencement des services en ligne de l’organisation et mesure de leur visibilité</h3>
-                <p><strong>Fiche de Réalisation : Déploiement et Analyse d'Audience d'un Service Web</strong></p>
-                
-                <p><strong>Contexte de l'intervention</strong><br>
-                Dans le paysage numérique actuel, mettre un site en ligne n'est que la première étape ; le véritable enjeu est de le rendre visible et d'en mesurer l'impact. Pour valider la compétence de référencement et de mesure de visibilité, j'ai conçu une Landing Page thématique. Mon objectif était de maîtriser le cycle complet : de la publication du code source à l'analyse concrète du trafic généré.</p>
+                <p><strong>Guide : Publier un site et mesurer son succès</strong><br>
+                <strong>Objectif :</strong> Mettre un projet en ligne gratuitement et savoir qui le visite.</p>
 
-                <p><strong>Déroulement technique et analytique</strong><br>
-                <strong>1. Intégration et Mise en Production (CI/CD simplifié) :</strong> Pour garantir la disponibilité du service en ligne, j'ai opté pour une approche professionnelle basée sur le contrôle de version et l'hébergement continu :<br>
-                - <strong>Création du dépôt public GitHub :</strong> J'ai versionné le code source de ma Landing Page, rendant mon travail transparent et collaboratif.<br>
-                - <strong>Déploiement via GitHub Pages :</strong> J'ai configuré la publication automatique du site. Cette étape m'a permis de transformer un projet local en un service en ligne fonctionnel et accessible via une URL publique.<br><br>
-                
-                <strong>2. Implémentation de la Métrologie (Google Analytics) :</strong> Pour comprendre comment mon service est utilisé, j'ai dû relier mon site à un outil d'analyse d'audience puissant :<br>
-                - <strong>Création de l'environnement de suivi :</strong> J'ai ouvert et configuré un compte Google Analytics dédié à mon projet.<br>
-                - <strong>Intégration du Google Tag :</strong> J'ai inséré le script de suivi (G-Tag) directement dans la balise &lt;head&gt; de mon code source. C'est cette manipulation technique précise qui permet la remontée des données de navigation vers le tableau de bord d'analyse.<br><br>
-                
-                <strong>3. Acquisition et Analyse du Trafic :</strong> Un outil de mesure n'a de sens que s'il y a de l'activité. J'ai donc simulé une campagne d'acquisition de trafic :<br>
-                - <strong>Génération de vues :</strong> J'ai partagé stratégiquement l'URL de ma Landing Page pour attirer des visiteurs réels sur le site.<br>
-                - <strong>Export de l'analyse d'audience :</strong> J'ai extrait les rapports de trafic depuis Google Analytics. J'ai pu isoler des métriques clés (nombre de visiteurs, pages vues, temps passé) pour prouver que le site était bel et bien visible et visité.</p>
+                <p><strong>1. Mise en ligne (GitHub Pages)</strong><br>
+                <strong>Action :</strong> Créer un compte GitHub, créer un "Repository" et y glisser vos fichiers HTML/CSS.<br>
+                <strong>Procédure :</strong> Aller dans "Settings &gt; Pages" et choisir la branche "main". Votre site est en ligne en 30 secondes.<br>
+                <strong>Pourquoi :</strong> C'est une solution professionnelle, gratuite et qui gère l'historique de vos modifications.</p>
 
-                <p><strong>Bilan de la compétence</strong></p>
-                <ul>
-                    <li><strong>Rendre un service accessible :</strong> Maîtriser le déploiement web.</li>
-                    <li><strong>Auditer une audience :</strong> Configurer techniquement un outil de tracking (balisage HTML).</li>
-                    <li><strong>Exploiter la data :</strong> Lire et exporter des statistiques de trafic pour mesurer la visibilité réelle d'une organisation sur le web.</li>
-                </ul>
+                <p><strong>2. Pose du compteur (Google Analytics)</strong><br>
+                <strong>Action :</strong> Créer un flux de données sur Google Analytics.<br>
+                <strong>Intégration :</strong> Copier le code (balise <code>&lt;script&gt;</code>) fourni par Google et le coller juste avant la balise <code>&lt;/head&gt;</code> de votre fichier index.html.<br>
+                <strong>Vérification :</strong> Ouvrez votre site, puis regardez l'onglet "Temps réel" sur Analytics. Si vous voyez "1 utilisateur", ça fonctionne !</p>
             </div>
 
             <div class="projet">
@@ -106,7 +83,20 @@
 
             <div class="projet">
                 <h3>C17 - Déploiement d’un service</h3>
-                <p>Le livrable C17 "Déployer un service" a consisté à valider les étapes clés de la mise en production d'une application, en partant des bases du serveur web jusqu'aux architectures Cloud modernes. J'ai d'abord analysé les critères de choix entre un hébergement gratuit et payant, en tenant compte des performances et de la sécurité, avant de me concentrer sur la containerisation. Cette étape technique m'a permis d'utiliser Docker pour encapsuler des services dans des environnements isolés, garantissant ainsi qu'ils fonctionnent de manière identique sur n'importe quel serveur. En complétant ces défis à 100 %, j'ai prouvé ma capacité à automatiser le déploiement de solutions informatiques et à exploiter les services « clé en main » des grands fournisseurs Cloud pour répondre efficacement aux besoins d'agilité des entreprises actuelles.</p>
+                <p><strong>Guide : La méthode Docker pour un déploiement infaillible</strong><br>
+                <strong>Objectif :</strong> Faire en sorte qu'une application marche partout de la même façon.</p>
+
+                <p><strong>1. Création du conteneur</strong><br>
+                <strong>Action :</strong> Créer un fichier nommé Dockerfile.<br>
+                <strong>Contenu type :</strong></p>
+                <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; margin: 10px 0; color: #a3b8cc;"><code>FROM nginx:latest
+COPY ./mon-site /usr/share/nginx/html</code></pre>
+                <p><strong>Pourquoi :</strong> On dit à l'ordinateur : "Prends une base de serveur Web propre (Nginx) et mets mes fichiers dedans".</p>
+
+                <p><strong>2. Lancement</strong><br>
+                <strong>Commande :</strong> <code>docker build -t mon-app .</code> (On fabrique l'image).<br>
+                <strong>Commande :</strong> <code>docker run -p 80:80 mon-app</code> (On lance le service).<br>
+                <strong>Avantage :</strong> Peu importe l'ordinateur de destination, si Docker est installé, l'application se lancera exactement de la même manière.</p>
             </div>
         </section>
     </main>
