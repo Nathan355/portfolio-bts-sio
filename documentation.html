@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation des Compétences - Nathan Moraglia | BTS SIO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html">Accueil</a>
+            <a href="projet.html">Projets</a>
+            <a href="alternance.html">Alternance</a>
+            <a href="competances.html">Compétences</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="cursus.html">Cursus Scolaire</a>
+            <a href="contact.html">Contact</a>
+            <a href="Epreuve.html">Épreuve</a>
+            <a href="veille.html">Veille Technologique</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="documentation">
+            <h2>Documentation des Compétences</h2>
+            
+            <div class="projet">
+                <h3>C1 - Recensement et identification des ressources numériques</h3>                <p><strong>Guide de mise en œuvre : Gestion de parc avec GLPI</strong><br>
+                <strong>Objectif :</strong> Créer un inventaire automatisé pour ne plus rien perdre de son matériel.</p>
+                
+                <p><strong>1. Installation du "Cerveau" (Le Serveur)</strong><br>
+                <strong>Action :</strong> Préparer un serveur (Linux de préférence) avec une pile LAMP (Linux, Apache, MySQL, PHP).<br>
+                <strong>Pourquoi :</strong> GLPI a besoin d'une base de données pour stocker les infos et d'un serveur web pour afficher l'interface.<br>
+                <strong>Commande :</strong> <code>sudo apt install apache2 mariadb-server php</code> (Installe les composants nécessaires).<br>
+                Téléchargez l'archive GLPI, décompressez-la dans <code>/var/www/html</code> et suivez l'assistant via votre navigateur.</p>
+
+                <p><strong>2. Installation des "Espions" (Les Agents)</strong><br>
+                <strong>Action :</strong> Installer l'agent GLPI sur chaque machine à surveiller.<br>
+                <strong>Procédure :</strong><br>
+                - <em>Sur Windows :</em> Lancer l'installateur .msi et renseigner l'URL du serveur (ex: http://votre-ip/glpi).<br>
+                - <em>Sur Linux :</em> Utiliser la commande <code>sudo apt install glpi-agent</code>.<br>
+                <strong>Résultat :</strong> La machine apparaît automatiquement dans l'onglet "Ordinateurs" de GLPI avec tous ses détails (RAM, CPU, Disque).</p>
+            </div>
+
+            <div class="projet">
+                <h3>C7 - Collecte, suivi et orientation des demandes</h3>
+                <p><strong>Protocole : Transformer GLPI en centre de support (Ticketing)</strong><br>
+                <strong>Objectif :</strong> Centraliser les demandes pour qu'aucun collègue ne reste bloqué.</p>
+
+                <p><strong>1. Structuration du terrain (Entités)</strong><br>
+                <strong>Action :</strong> Dans l'onglet "Administration &gt; Entités", créer l'arborescence de l'entreprise (ex: RH, Comptabilité, Technique).<br>
+                <strong>Pourquoi :</strong> Cela permet de trier les tickets automatiquement par département.</p>
+
+                <p><strong>2. Cycle de vie d'un incident</strong><br>
+                <strong>Action :</strong> Définir le flux.<br>
+                - <strong>Ouverture :</strong> L'utilisateur crée un ticket via son interface simplifiée.<br>
+                - <strong>Traitement :</strong> Le technicien change le statut en "En cours" et ajoute un suivi.<br>
+                - <strong>Clôture :</strong> Une fois résolu, passer en "Clos".<br>
+                <strong>Exploitation :</strong> Utiliser le menu "Assistance &gt; Statistiques" pour voir quels sont les problèmes récurrents et créer une mini-notice (FAQ) pour les résoudre plus vite la prochaine fois.</p>
+            </div>
+
+            <div class="projet">
+                <h3>C11 - Référencement des services en ligne de l’organisation et mesure de leur visibilité</h3>
+                <p><strong>Guide : Publier un site et mesurer son succès</strong><br>
+                <strong>Objectif :</strong> Mettre un projet en ligne gratuitement et savoir qui le visite.</p>
+
+                <p><strong>1. Mise en ligne (GitHub Pages)</strong><br>
+                <strong>Action :</strong> Créer un compte GitHub, créer un "Repository" et y glisser vos fichiers HTML/CSS.<br>
+                <strong>Procédure :</strong> Aller dans "Settings &gt; Pages" et choisir la branche "main". Votre site est en ligne en 30 secondes.<br>
+                <strong>Pourquoi :</strong> C'est une solution professionnelle, gratuite et qui gère l'historique de vos modifications.</p>
+
+                <p><strong>2. Pose du compteur (Google Analytics)</strong><br>
+                <strong>Action :</strong> Créer un flux de données sur Google Analytics.<br>
+                <strong>Intégration :</strong> Copier le code (balise <code>&lt;script&gt;</code>) fourni par Google et le coller juste avant la balise <code>&lt;/head&gt;</code> de votre fichier index.html.<br>
+                <strong>Vérification :</strong> Ouvrez votre site, puis regardez l'onglet "Temps réel" sur Analytics. Si vous voyez "1 utilisateur", ça fonctionne !</p>
+            </div>
+
+            <div class="projet">
+                <h3>C14 - Planification des activités</h3>
+                <p><strong>Compétence validée : Présentation de l'Application de Suivi des Certifications - Open Value</strong></p>
+                
+                <p><strong>1. Introduction</strong><br>
+                Bonjour Mesdames et Messieurs du Jury, je me nomme Nathan Moraglia, et je vous présente aujourd'hui mon application de suivi des certifications développée pour Open Value. Cette application web permet de gérer efficacement les certifications des collaborateurs de l'entreprise, en assurant un suivi précis des dates d'obtention et d'expiration.</p>
+
+                <p><strong>2. Contexte et Objectifs</strong><br>
+                Open Value est une entreprise spécialisée dans la data et l'intelligence artificielle. Avec une équipe nombreuse et diversifiée, il est crucial de maintenir à jour les compétences des collaborateurs.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Centraliser la gestion des certifications</li>
+                    <li>Automatiser les alertes d'expiration</li>
+                    <li>Faciliter la visualisation des données</li>
+                    <li>Assurer la conformité et la mise à jour des compétences</li>
+                </ul>
+
+                <p><strong>3. Architecture et Technologies</strong></p>
+                <ul style="margin-top: 15px;">
+                    <li><strong>Backend :</strong> Python avec Flask</li>
+                    <li><strong>Base de Données :</strong> SQLite (remplaçable par PostgreSQL)</li>
+                    <li><strong>Frontend :</strong> HTML5, CSS3, JavaScript</li>
+                    <li><strong>ORM :</strong> SQLAlchemy</li>
+                    <li><strong>Architecture :</strong> MVC (Modèle-Vue-Contrôleur)</li>
+                </ul>
+
+                <p><strong>4. Fonctionnalités Principales</strong></p>
+                <ul style="margin-top: 15px;">
+                    <li><strong>Gestion des Collaborateurs :</strong> Ajout, modification, suppression des profils.</li>
+                    <li><strong>Gestion des Certifications :</strong> Catalogue et filtrage (catégorie, fournisseur).</li>
+                    <li><strong>Suivi des Obtentions :</strong> Association collaborateurs-certifications, dates et historique.</li>
+                    <li><strong>Tableau de Bord :</strong> Statistiques générales et alertes d'expiration (7 jours à l'avance).</li>
+                    <li><strong>Interface :</strong> Design moderne (backdrop-filter) et responsive avec fond Open Value.</li>
+                </ul>
+
+                <p><strong>5. Sécurité et Performance</strong></p>
+                <ul style="margin-top: 15px;">
+                    <li><strong>Sécurité :</strong> Hashage SHA256, Protection CSRF, protection contre les injections SQL, Session cookies sécurisés, Redirection HTTPS.</li>
+                    <li><strong>Performance :</strong> Requêtes optimisées avec joinedload, Pagination, Optimisation des requêtes de filtrage.</li>
+                </ul>
+
+                <p><strong>6. Déploiement et Évolutions</strong><br>
+                Hébergement sur Azure App Service avec Azure Database for MySQL, et serveur Web Gunicorn. À l'avenir, une API REST, un export PDF/Excel et un système de notification par email pourront être ajoutés.</p>
+
+    <img src="IMG_1832.JPG" alt="Aperçu de l'Application de Suivi des Certifications" class="image" style="margin: 20px 0;">
+                <p><strong>Conclusion</strong><br>
+                Cette application répond aux besoins identifiés chez Open Value, avec des technologies robustes et modernes offrant une solution scalable et maintenable pour les managers RH.<br>
+                <br>
+                <em>02/01/2026 - Moraglia Nathan</em></p>
+            </div>
+
+            <div class="projet">
+                <h3>C17 - Déploiement d’un service</h3>
+                <p><strong>Guide : La méthode Docker pour un déploiement infaillible</strong><br>
+                <strong>Objectif :</strong> Faire en sorte qu'une application marche partout de la même façon.</p>
+
+                <p><strong>1. Création du conteneur</strong><br>
+                <strong>Action :</strong> Créer un fichier nommé Dockerfile.<br>
+                <strong>Contenu type :</strong></p>
+                <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; margin: 10px 0; color: #a3b8cc;"><code>FROM nginx:latest
+COPY ./mon-site /usr/share/nginx/html</code></pre>
+                <p><strong>Pourquoi :</strong> On dit à l'ordinateur : "Prends une base de serveur Web propre (Nginx) et mets mes fichiers dedans".</p>
+
+                <p><strong>2. Lancement</strong><br>
+                <strong>Commande :</strong> <code>docker build -t mon-app .</code> (On fabrique l'image).<br>
+                <strong>Commande :</strong> <code>docker run -p 80:80 mon-app</code> (On lance le service).<br>
+                <strong>Avantage :</strong> Peu importe l'ordinateur de destination, si Docker est installé, l'application se lancera exactement de la même manière.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Nathan Moraglia - BTS SIO | EFREI Paris</p>
+    </footer>
+</body>
+</html>
