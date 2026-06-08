@@ -5,6 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Compétences - Nathan Moraglia | BTS SIO</title>
+    <style>
+        .competences-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .competence-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(240, 147, 251, 0.12) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 24px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            transition: all 0.35s ease;
+        }
+
+        .competence-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color, #667eea);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+        }
+
+        .competence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .competence-title {
+            color: #b9a8ff;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .how-to-btn {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .how-to-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .competence-desc {
+            color: rgba(255,255,255,0.85);
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .guide-content {
+            display: none;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 24px;
+            margin-top: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #f093fb;
+            animation: slideDown 0.3s ease forwards;
+        }
+
+        .guide-content.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .guide-content h4 {
+            color: #ff95b2;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .guide-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .guide-content p, .guide-content li {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .guide-content ol, .guide-content ul {
+            margin: 12px 0 12px 20px;
+        }
+
+        .guide-content code {
+            background: rgba(0,0,0,0.6);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #a3b8cc;
+            font-weight: 600;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .step-box {
+            background: rgba(102, 126, 234, 0.08);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 14px 0;
+            border-left: 3px solid #667eea;
+        }
+
+        .step-box strong {
+            color: #b9a8ff;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        pre {
+            background: rgba(0,0,0,0.5);
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,7 +147,7 @@
             <a href="index.html">Accueil</a>
             <a href="projet.html">Projets</a>
             <a href="alternance.html">Alternance</a>
-            <a href="competances.html">Compétences</a>
+            <a href="competances.html" class="active">Compétences</a>
             <a href="cursus.html">Cursus Scolaire</a>
             <a href="contact.html">Contact</a>
             <a href="Epreuve.html">Épreuve</a>
@@ -20,149 +155,283 @@
         </nav>
     </header>
     
-    <main>
+    <main class="competences-container">
         <section class="competences">
-            <h2>Mes Compétences</h2>
-            <ul>
-    <li><strong>Développement Web</strong> - HTML5, CSS3, JavaScript, déploiement GitHub Pages</li>
-    <li><strong>Gestion de Base de Données</strong> - SQL, Modélisation (MCD), Administration MariaDB/MySQL</li>
-    <li><strong>Réseaux et Systèmes</strong> - Administration Debian/Linux, Virtualisation (.OVA), Administration SharePoint</li>
-    <li><strong>Cybersécurité</strong> - Analyse forensique, réponse aux incidents, détection de malwares (Vesper-9)</li>
-    <li><strong>Gestion de Parc & Support</strong> - Inventaire GLPI, gestion du cycle de vie matériel, Helpdesk</li>
-    <li><strong>Analyse Digitale</strong> - Google Analytics (Tracking, analyse de trafic et KPI)</li>
-    <li><strong>Outils et Technologies</strong> - Git/GitHub, VS Code, Stack LAMP, Windows/Linux</li>
-</ul>
-            <a href="tableau.html">Voir la grille de compétences</a>
-        </section>
+            <h2>Documentation de mes Compétences BTS SIO</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.85); margin-bottom: 40px;">
+                Cliquez sur "💡 Comment faire" pour accéder aux protocoles techniques et explications méthodologiques.
+            </p>
 
-        <section id="documentation">
-            <h2>Documentation des Compétences</h2>
-            
-            <div class="projet">
-                <h3>C1 - Recensement et identification des ressources numériques</h3>
-                <p><strong>Guide de mise en œuvre : Gestion de parc avec GLPI</strong><br>
-                <strong>Objectif :</strong> Créer un inventaire automatisé pour ne plus rien perdre de son matériel.</p>
+            <div class="competence-item">
+                <div class="competence-header">
+                    <h3 class="competence-title">C1 - Recenser et identifier les ressources numériques</h3>
+                    <button class="how-to-btn" onclick="toggleGuide(this)">💡 Comment faire</button>
+                </div>
+                <p class="competence-desc">Gestion de parc et inventaire automatisé d'équipements et de logiciels avec GLPI.</p>
                 
-                <p><strong>1. Installation du "Cerveau" (Le Serveur)</strong><br>
-                <strong>Action :</strong> Préparer un serveur (Linux de préférence) avec une pile LAMP (Linux, Apache, MySQL, PHP).<br>
-                <strong>Pourquoi :</strong> GLPI a besoin d'une base de données pour stocker les infos et d'un serveur web pour afficher l'interface.<br>
-                <strong>Commande :</strong> <code>sudo apt install apache2 mariadb-server php</code> (Installe les composants nécessaires).<br>
-                Téléchargez l'archive GLPI, décompressez-la dans <code>/var/www/html</code> et suivez l'assistant via votre navigateur.</p>
+                <div class="guide-content">
+                    <h4>🎯 Objectif</h4>
+                    <p>Créer et maintenir un système d'inventaire centralisé et automatisé afin d'assurer une visibilité complète sur le parc machine et applicatif de l'organisation.</p>
+                    
+                    <h4>📋 Procédure de mise en œuvre</h4>
+                    
+                    <div class="step-box">
+                        <strong>Étape 1 : Déploiement de l'infrastructure serveur (LAMP)</strong>
+                        <p>Nous installons l'environnement serveur requis pour héberger l'application web GLPI.</p>
+                        <ol>
+                            <li>Mettre à jour les dépôts système : <code>sudo apt update && sudo apt upgrade</code></li>
+                            <li>Installer la pile applicative : <code>sudo apt install apache2 mariadb-server php php-mysql php-gd php-mbstring php-xml php-curl</code></li>
+                            <li><strong>Pourquoi ?</strong> GLPI nécessite un serveur HTTP (Apache) pour diffuser l'interface, un moteur d'exécution (PHP) pour traiter la logique logicielle, et un SGBD (MariaDB/MySQL) pour stocker la base de données relationnelle du parc.</li>
+                            <li>Télécharger et extraire GLPI dans le répertoire web : <code>/var/www/html/glpi</code></li>
+                            <li>Attribuer les droits à Apache : <code>sudo chown -R www-data:www-data /var/www/html/glpi</code></li>
+                        </ol>
+                    </div>
 
-                <p><strong>2. Installation des "Espions" (Les Agents)</strong><br>
-                <strong>Action :</strong> Installer l'agent GLPI sur chaque machine à surveiller.<br>
-                <strong>Procédure :</strong><br>
-                - <em>Sur Windows :</em> Lancer l'installateur .msi et renseigner l'URL du serveur (ex: http://votre-ip/glpi).<br>
-                - <em>Sur Linux :</em> Utiliser la commande <code>sudo apt install glpi-agent</code>.<br>
-                <strong>Résultat :</strong> La machine apparaît automatiquement dans l'onglet "Ordinateurs" de GLPI avec tous ses détails (RAM, CPU, Disque).</p>
+                    <div class="step-box">
+                        <strong>Étape 2 : Déploiement et liaison des agents d'inventaire</strong>
+                        <p>Afin d'automatiser la remontée des composants matériels et logiciels sans intervention humaine répétitive.</p>
+                        <ul>
+                            <li><strong>Sur un environnement Windows :</strong> Exécuter l'installateur d'agent <code>.msi</code>. Lors de l'assistant, spécifier l'adresse de destination cible : <code>http://[IP_SERVEUR]/glpi/plugins/glpiinventory/</code>.</li>
+                            <li><strong>Sur un environnement Linux (Debian/Ubuntu) :</strong>
+                                <br>Installation de l'agent : <code>sudo apt install glpi-agent</code>
+                                <br>Configuration de l'adresse du serveur dans <code>/etc/glpi-agent/agent.cfg</code> : <code>server=http://[IP_SERVEUR]/glpi/</code>
+                                <br>Forcer la première remontée immédiate : <code>sudo glpi-agent --force</code>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="step-box">
+                        <strong>Étape 3 : Contrôle et exploitation des données</strong>
+                        <p>Validation de la bonne réception des métadonnées systèmes.</p>
+                        <ol>
+                            <li>Se connecter à la console d'administration GLPI.</li>
+                            <li>Naviguer vers le menu <strong>Parc > Ordinateurs</strong>.</li>
+                            <li>Vérifier l'exactitude des fiches générées dynamiquement (capacités physiques de la RAM, architecture CPU, partitions de stockage et licences de logiciels détectées).</li>
+                        </ol>
+                    </div>
+
+                    <h4>✅ Critères de Validation du Jury</h4>
+                    <p>Présentation d'un serveur fonctionnel contenant au moins 3 machines distinctes inventoriées automatiquement avec le listing complet de leurs dépendances matérielles et logicielles.</p>
+                </div>
             </div>
 
-            <div class="projet">
-                <h3>C7 - Collecte, suivi et orientation des demandes</h3>
-                <p><strong>Protocole : Transformer GLPI en centre de support (Ticketing)</strong><br>
-                <strong>Objectif :</strong> Centraliser les demandes pour qu'aucun collègue ne reste bloqué.</p>
-
-                <p><strong>1. Structuration du terrain (Entités)</strong><br>
-                <strong>Action :</strong> Dans l'onglet "Administration &gt; Entités", créer l'arborescence de l'entreprise (ex: RH, Comptabilité, Technique).<br>
-                <strong>Pourquoi :</strong> Cela permet de trier les tickets automatiquement par département.</p>
-
-                <p><strong>2. Cycle de vie d'un incident</strong><br>
-                <strong>Action :</strong> Définir le flux.<br>
-                - <strong>Ouverture :</strong> L'utilisateur crée un ticket via son interface simplifiée.<br>
-                - <strong>Traitement :</strong> Le technicien change le statut en "En cours" et ajoute un suivi.<br>
-                - <strong>Clôture :</strong> Une fois résolu, passer en "Clos".<br>
-                <strong>Exploitation :</strong> Utiliser le menu "Assistance &gt; Statistiques" pour voir quels sont les problèmes récurrents et créer une mini-notice (FAQ) pour les résoudre plus vite la prochaine fois.</p>
-            </div>
-
-            <div class="projet">
-                <h3>C11 - Référencement des services en ligne de l’organisation et mesure de leur visibilité</h3>
-                <p><strong>Guide : Publier un site et mesurer son succès</strong><br>
-                <strong>Objectif :</strong> Mettre un projet en ligne gratuitement et savoir qui le visite.</p>
-
-                <p><strong>1. Mise en ligne (GitHub Pages)</strong><br>
-                <strong>Action :</strong> Créer un compte GitHub, créer un "Repository" et y glisser vos fichiers HTML/CSS.<br>
-                <strong>Procédure :</strong> Aller dans "Settings &gt; Pages" et choisir la branche "main". Votre site est en ligne en 30 secondes.<br>
-                <strong>Pourquoi :</strong> C'est une solution professionnelle, gratuite et qui gère l'historique de vos modifications.</p>
-
-                <p><strong>2. Pose du compteur (Google Analytics)</strong><br>
-                <strong>Action :</strong> Créer un flux de données sur Google Analytics.<br>
-                <strong>Intégration :</strong> Copier le code (balise <code>&lt;script&gt;</code>) fourni par Google et le coller juste avant la balise <code>&lt;/head&gt;</code> de votre fichier index.html.<br>
-                <strong>Vérification :</strong> Ouvrez votre site, puis regardez l'onglet "Temps réel" sur Analytics. Si vous voyez "1 utilisateur", ça fonctionne !</p>
-            </div>
-
-            <div class="projet">
-                <h3>C14 - Planification des activités</h3>
-                <p><strong>Compétence validée : Présentation de l'Application de Suivi des Certifications - Open Value</strong></p>
+            <div class="competence-item">
+                <div class="competence-header">
+                    <h3 class="competence-title">C7 - Collecter, suivre et orienter les demandes</h3>
+                    <button class="how-to-btn" onclick="toggleGuide(this)">💡 Comment faire</button>
+                </div>
+                <p class="competence-desc">Configuration d'un centre de services (Helpdesk) et cycle de vie d'un incident.</p>
                 
-                <p><strong>1. Introduction</strong><br>
-                Bonjour Mesdames et Messieurs du Jury, je me nomme Nathan Moraglia, et je vous présente aujourd'hui mon application de suivi des certifications développée pour Open Value. Cette application web permet de gérer efficacement les certifications des collaborateurs de l'entreprise, en assurant un suivi précis des dates d'obtention et d'expiration.</p>
+                <div class="guide-content">
+                    <h4>🎯 Objectif</h4>
+                    <p>Centraliser, qualifier et orchestrer la résolution des incidents techniques et des demandes de services afin de respecter les engagements de support.</p>
+                    
+                    <h4>📋 Procédure de mise en œuvre</h4>
+                    
+                    <div class="step-box">
+                        <strong>Étape 1 : Structuration de l'organisation (Entités)</strong>
+                        <ol>
+                            <li>Se rendre dans <strong>Administration > Entités</strong>.</li>
+                            <li>Créer le cloisonnement organisationnel de la structure (ex: Direction, RH, Comptabilité, Technique).</li>
+                            <li><strong>Pourquoi ?</strong> Le découpage en entités garantit l'isolation des données, la gestion fine des droits d'accès des techniciens et le ciblage précis des utilisateurs.</li>
+                        </ol>
+                    </div>
 
-                <p><strong>2. Contexte et Objectifs</strong><br>
-                Open Value est une entreprise spécialisée dans la data et l'intelligence artificielle. Avec une équipe nombreuse et diversifiée, il est crucial de maintenir à jour les compétences des collaborateurs.</p>
-                <ul style="margin-top: 15px;">
-                    <li>Centraliser la gestion des certifications</li>
-                    <li>Automatiser les alertes d'expiration</li>
-                    <li>Faciliter la visualisation des données</li>
-                    <li>Assurer la conformité et la mise à jour des compétences</li>
-                </ul>
+                    <div class="step-box">
+                        <strong>Étape 2 : Cycle de vie nominal d'un ticket</strong>
+                        <p>Suivi rigoureux du flux de traitement de l'anomalie jusqu'à sa résolution :</p>
+                        <ul>
+                            <li><strong>Ouverture (Nouveau) :</strong> L'utilisateur final se connecte à son portail simplifié et soumet son problème (ex : dysfonctionnement d'imprimante).</li>
+                            <li><strong>Prise en charge (En cours) :</strong> Le technicien qualifie la demande, modifie le statut en "En cours", définit la priorité de l'incident et consigne les premières actions dans l'historique de suivi.</li>
+                            <li><strong>Clôture (Clos) :</strong> La solution technique est appliquée. Le ticket passe à l'état "Résolu" puis "Clos" après validation ou absence de contestation du demandeur.</li>
+                        </ul>
+                    </div>
 
-                <p><strong>3. Architecture et Technologies</strong></p>
-                <ul style="margin-top: 15px;">
-                    <li><strong>Backend :</strong> Python avec Flask</li>
-                    <li><strong>Base de Données :</strong> SQLite (remplaçable par PostgreSQL)</li>
-                    <li><strong>Frontend :</strong> HTML5, CSS3, JavaScript</li>
-                    <li><strong>ORM :</strong> SQLAlchemy</li>
-                    <li><strong>Architecture :</strong> MVC (Modèle-Vue-Contrôleur)</li>
-                </ul>
+                    <div class="step-box">
+                        <strong>Étape 3 : Pilotage et démarche d'amélioration continue</strong>
+                        <ol>
+                            <li>Consulter le tableau de bord décisionnel via <strong>Assistance > Statistiques</strong>.</li>
+                            <li>Analyser les indicateurs de performance (KPI) : temps moyen de prise en charge, récurrence des pannes.</li>
+                            <li>Générer des articles de Base de Connaissances (FAQ) à partir des résolutions fréquentes pour rendre l'utilisateur autonome et réduire le volume global de tickets entrants.</li>
+                        </ol>
+                    </div>
 
-                <p><strong>4. Fonctionnalités Principales</strong></p>
-                <ul style="margin-top: 15px;">
-                    <li><strong>Gestion des Collaborateurs :</strong> Ajout, modification, suppression des profils.</li>
-                    <li><strong>Gestion des Certifications :</strong> Catalogue et filtrage (catégorie, fournisseur).</li>
-                    <li><strong>Suivi des Obtentions :</strong> Association collaborateurs-certifications, dates et historique.</li>
-                    <li><strong>Tableau de Bord :</strong> Statistiques générales et alertes d'expiration (7 jours à l'avance).</li>
-                    <li><strong>Interface :</strong> Design moderne (backdrop-filter) et responsive avec fond Open Value.</li>
-                </ul>
-
-                <p><strong>5. Sécurité et Performance</strong></p>
-                <ul style="margin-top: 15px;">
-                    <li><strong>Sécurité :</strong> Hashage SHA256, Protection CSRF, protection contre les injections SQL, Session cookies sécurisés, Redirection HTTPS.</li>
-                    <li><strong>Performance :</strong> Requêtes optimisées avec joinedload, Pagination, Optimisation des requêtes de filtrage.</li>
-                </ul>
-
-                <p><strong>6. Déploiement et Évolutions</strong><br>
-                Hébergement sur Azure App Service avec Azure Database for MySQL, et serveur Web Gunicorn. À l'avenir, une API REST, un export PDF/Excel et un système de notification par email pourront être ajoutés.</p>
-
-                <img src="image-1832.jpg" alt="Aperçu de l'Application de Suivi des Certifications" class="image" style="margin: 20px 0;">
-
-                <p><strong>Conclusion</strong><br>
-                Cette application répond aux besoins identifiés chez Open Value, avec des technologies robustes et modernes offrant une solution scalable et maintenable pour les managers RH.<br>
-                <br>
-                <em>02/01/2026 - Moraglia Nathan</em></p>
+                    <h4>✅ Critères de Validation du Jury</h4>
+                    <p>Démonstration d'un historique d'incidents clôturés avec catégorisation des demandes, affectation à des groupes de techniciens dédiés et extraction de graphiques de performance.</p>
+                </div>
             </div>
 
-            <div class="projet">
-                <h3>C17 - Déploiement d’un service</h3>
-                <p><strong>Guide : La méthode Docker pour un déploiement infaillible</strong><br>
-                <strong>Objectif :</strong> Faire en sorte qu'une application marche partout de la même façon.</p>
+            <div class="competence-item">
+                <div class="competence-header">
+                    <h3 class="competence-title">C11 - Référencement des services en ligne et mesure de visibilité</h3>
+                    <button class="how-to-btn" onclick="toggleGuide(this)">💡 Comment faire</button>
+                </div>
+                <p class="competence-desc">Déploiement d'une infrastructure Web sur GitHub Pages et intégration d'un tracking asynchrone Google Analytics.</p>
+                
+                <div class="guide-content">
+                    <h4>🎯 Objectif</h4>
+                    <p>Assurer le déploiement continu d'un livrable web accessible publiquement et configurer une solution de collecte d'audience pour mesurer les indicateurs clés de performance (KPI).</p>
+                    
+                    <h4>📋 Procédure de mise en œuvre</h4>
+                    
+                    <div class="step-box">
+                        <strong>Étape 1 : Hébergement et publication via GitHub Pages</strong>
+                        <ol>
+                            <li>Créer un dépôt (Repository) public sur GitHub et y pousser l'arborescence des fichiers source du projet (HTML, CSS, JS).</li>
+                            <li>Accéder à l'onglet <strong>Settings</strong> du dépôt, puis section <strong>Pages</strong>.</li>
+                            <li>Configurer la source de construction sur la branche principale <code>main</code> ou <code>master</code> et valider.</li>
+                            <li><strong>Pourquoi ?</strong> GitHub Pages fournit une infrastructure d'hébergement statique automatisée, sécurisée par un certificat SSL (HTTPS) natif et synchronisée directement avec le gestionnaire de versions Git.</li>
+                        </ol>
+                    </div>
 
-                <p><strong>1. Création du conteneur</strong><br>
-                <strong>Action :</strong> Créer un fichier nommé Dockerfile.<br>
-                <strong>Contenu type :</strong></p>
-                <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; margin: 10px 0; color: #a3b8cc;"><code>FROM nginx:latest
-COPY ./mon-site /usr/share/nginx/html</code></pre>
-                <p><strong>Pourquoi :</strong> On dit à l'ordinateur : "Prends une base de serveur Web propre (Nginx) et mets mes fichiers dedans".</p>
+                    <div class="step-box">
+                        <strong>Étape 2 : Implémentation de la solution d'analyse d'audience</strong>
+                        <ol>
+                            <li>Initialiser une propriété Web au sein de la console Google Analytics afin de récupérer l'identifiant unique de mesure (G-XXXXXXXXXX).</li>
+                            <li>Insérer la balise de suivi JavaScript fournie au sein de l'en-tête globale du site :</li>
+                        </ol>
+                        <pre><code style="color: #e2e8f0;">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+&lt;/script&gt;</code></pre>
+                    </div>
 
-                <p><strong>2. Lancement</strong><br>
-                <strong>Commande :</strong> <code>docker build -t mon-app .</code> (On fabrique l'image).<br>
-                <strong>Commande :</strong> <code>docker run -p 80:80 mon-app</code> (On lance le service).<br>
-                <strong>Avantage :</strong> Peu importe l'ordinateur de destination, si Docker est installé, l'application se lancera exactement de la même manière.</p>
+                    <div class="step-box">
+                        <strong>Étape 3 : Audit de la télémétrie</strong>
+                        <ul>
+                            <li>Naviguer sur le site web nouvellement publié pour générer du trafic.</li>
+                            <li>Ouvrir le tableau de bord Google Analytics dans l'onglet <strong>Temps réel</strong>.</li>
+                            <li>Vérifier la bonne capture de l'événement de visite (comptage de l'utilisateur actif, localisation géographique et terminaux utilisés).</li>
+                        </ul>
+                    </div>
+
+                    <h4>✅ Critères de Validation du Jury</h4>
+                    <p>Vérification de l'accès public au site web via son URL d'hébergement sécurisée et démonstration en direct de la capture des flux utilisateurs dans l'outil d'analyse.</p>
+                </div>
             </div>
+
+            <div class="competence-item">
+                <div class="competence-header">
+                    <h3 class="competence-title">C14 - Planification des activités</h3>
+                    <button class="how-to-btn" onclick="toggleGuide(this)">💡 Comment faire</button>
+                </div>
+                <p class="competence-desc">Gestion de projet et industrialisation : Application de Suivi des Certifications pour Open Value.</p>
+                
+                <div class="guide-content">
+                    <h4>🎯 Objectif</h4>
+                    <p>Orchestrer le cycle de vie du développement d'une application métier critique de suivi des compétences et certifications, de sa modélisation à sa sécurisation applicative.</p>
+                    
+                    <h4>📋 Architecture et Spécifications Logicielles</h4>
+                    
+                    <div class="step-box">
+                        <strong>Structure Technique de l'Application</strong>
+                        <ul>
+                            <li><strong>Backend :</strong> Python s'appuyant sur le micro-framework Flask pour gérer le routage.</li>
+                            <li><strong>Persistance des données :</strong> Modélisation relationnelle exploitant SQLite via l'ORM SQLAlchemy pour s'abstraire des requêtes SQL brutes et sécuriser les transactions.</li>
+                            <li><strong>Pattern Architectural :</strong> Architecture MVC (Modèle-Vue-Contrôleur) séparant strictement la logique de données de la couche d'affichage.</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-box">
+                        <strong>Fonctionnalités Clés Implémentées</strong>
+                        <ol>
+                            <li><strong>Gestion des ressources :</strong> Opérations CRUD complètes (Create, Read, Update, Delete) sur les profils des collaborateurs et le catalogue de certifications.</li>
+                            <li><strong>Ordonnancement et alertes :</strong> Algorithme d'analyse temporelle programmé pour calculer les dates de validité et lever des alertes automatiques à J-7 avant expiration des compétences.</li>
+                        </ol>
+                    </div>
+
+                    <div class="step-box">
+                        <strong>Mécanismes de Sécurisation Intégrés (Audit Qualité)</strong>
+                        <p>Afin de prémunir l'application métier contre les vulnérabilités majeures du Top 10 OWASP :</p>
+                        <ul>
+                            <li><strong>Injections SQL :</strong> Utilisation systématique de requêtes paramétrées via l'ORM.</li>
+                            <li><strong>Hachage des secrets :</strong> Implémentation de l'algorithme robuste SHA256 pour le stockage des mots de passe.</li>
+                            <li><strong>Failles CSRF et Sessions :</strong> Injection de jetons d'authentification uniques au sein des formulaires et protection des cookies applicatifs.</li>
+                        </ul>
+                    </div>
+
+                    <h4>✅ Critères de Validation du Jury</h4>
+                    <p>Présentation du code source structuré, démonstration des alertes de planification automatique et passage réussi d'un test d'injection de données malveillantes.</p>
+                </div>
+            </div>
+
+            <div class="competence-item">
+                <div class="competence-header">
+                    <h3 class="competence-title">C17 - Déploiement d’un service</h3>
+                    <button class="how-to-btn" onclick="toggleGuide(this)">💡 Comment faire</button>
+                </div>
+                <p class="competence-desc">Conteneurisation d'applications et isolation d'environnements de production à l'aide de Docker.</p>
+                
+                <div class="guide-content">
+                    <h4>🎯 Objectif</h4>
+                    <p>Industrialiser le déploiement d'un service applicatif en encapsulant ses composants et ses dépendances logicielles au sein d'un conteneur isolé et immuable, garantissant un comportement identique sur tout environnement.</p>
+                    
+                    <h4>📋 Procédure de mise en œuvre</h4>
+                    
+                    <div class="step-box">
+                        <strong>Étape 1 : Conception du descripteur d'image (Dockerfile)</strong>
+                        <p>Création d'un fichier texte nommé <code>Dockerfile</code> à la racine du projet définissant les étapes de construction de notre environnement :</p>
+                        <pre style="color: #e2e8f0;"># Définition de l'image de base (Serveur web léger de production)
+FROM nginx:latest
+
+# Copie des artefacts statiques du projet vers le répertoire de diffusion du serveur
+COPY ./mon-site /usr/share/nginx/html
+
+# Exposition du port d'écoute réseau standard
+EXPOSE 80</pre>
+                        <p><strong>Pourquoi ?</strong> Cette méthode élimine le syndrome du <em>"ça marche sur ma machine"</em> en figeant les versions des packages système et du serveur web indépendamment du système d'exploitation hôte.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <strong>Étape 2 : Build de l'image Docker</strong>
+                        <p>Compilation de notre environnement isolé :</p>
+                        <code>docker build -t mon-app-web:1.0 .</code>
+                        <p>Cette commande instruit le démon Docker de lire le <code>Dockerfile</code> du répertoire courant (<code>.</code>) et d'empaqueter l'application sous l'étiquette (tag) spécifiée.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <strong>Étape 3 : Instanciation et exécution du conteneur</strong>
+                        <p>Mise en production du service avec redirection des flux réseaux :</p>
+                        <code>docker run -d -p 8080:80 --name conteneur-production mon-app-web:1.0</code>
+                        <ul>
+                            <li><code>-d</code> : Exécute le conteneur en tâche de fond (mode détaché).</li>
+                            <li><code>-p 8080:80</code> : Mappe le port 8080 de la machine hôte vers le port 80 interne du conteneur.</li>
+                        </ul>
+                    </div>
+
+                    <h4>✅ Critères de Validation du Jury</h4>
+                    <p>Exécution de la commande <code>docker ps</code> montrant le conteneur actif et accès réussi à l'application depuis un navigateur externe via l'adresse <code>http://[IP_HOTE]:8080</code>.</p>
+                </div>
+            </div>
+
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Nathan Moraglia - BTS SIO | EFREI Paris</p>
+        <p>© 2026 Nathan Moraglia - BTS SIO | EFREI Paris</p>
     </footer>
+
+    <script>
+        function toggleGuide(btn) {
+            // Navigation DOM pour cibler le conteneur de guide propre à l'élément cliqué
+            const item = btn.closest('.competence-item');
+            const guideContent = item.querySelector('.guide-content');
+            
+            // Bascule de l'état d'affichage via classe CSS active
+            guideContent.classList.toggle('active');
+            
+            if (guideContent.classList.contains('active')) {
+                btn.textContent = '✕ Fermer';
+                btn.style.background = 'linear-gradient(90deg, #f5576c 0%, #f093fb 100%)';
+            } else {
+                btn.textContent = '💡 Comment faire';
+                btn.style.background = 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)';
+            }
+        }
+    </script>
 </body>
 </html>
